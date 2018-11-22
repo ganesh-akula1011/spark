@@ -26,8 +26,8 @@ public class FirstClass{
 	    prop.setProperty("driver", "org.postgresql.Driver");
 	    prop.setProperty("user", "postgres");
 	    prop.setProperty("password", "1234"); // <- The password you used while installing Postgres
-	    ds.write().mode(SaveMode.Overwrite).jdbc(dbConnectionUrl, "firstclass", prop);
-		ds.show();
+//	    ds.write().mode(SaveMode.Overwrite).jdbc(dbConnectionUrl, "firstclass", prop);
+		ds.printSchema();
 	}
 	
 	
