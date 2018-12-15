@@ -2,14 +2,19 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import static org.apache.spark.sql.functions.*;
+
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
 public class JoinDataSetsAndActions {
 
 	public static void main(String[] args) {
 
 		SparkSession sc = new SparkSession.Builder().appName("Join and Perform actions")
 				.master("local").getOrCreate();
-		
-		Dataset<Row> customerDf = sc.read().format("csv").option("header", true)
+		SparkConf sc1 = new SparkConf().setAppName("hefllo").setMaster("local");
+		JavaSparkContext aa = new JavaSparkContext(sc1);		
+	Dataset<Row> customerDf = sc.read().format("csv").option("header", true)
 				.option("inferSchema", "true")
 		.load("src/main/resources/customers.csv");
 		
